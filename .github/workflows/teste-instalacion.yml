@@ -17,7 +17,7 @@ jobs:
             r: '4.3.0'
           - so: mac
             runner: macos-latest      # Apple Silicon
-            r: '4.3.3'
+            r: '4.3.0'
           - so: linux
             runner: ubuntu-24.04
             r: '4.3.0'
@@ -44,10 +44,6 @@ jobs:
         env:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}   # evita el límite de descargas de GitHub
         run: Rscript instalar_paquetes_${{ matrix.so }}_gitlab.R
-
-      - name: Diagnóstico readxl
-        if: always()
-        run: Rscript -e 'library(readxl); print(packageVersion("readxl"))'
         
       - name: Verificar paquetes críticos
         run: |
