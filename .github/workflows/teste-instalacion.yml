@@ -14,19 +14,22 @@ jobs:
         include:
           - so: windows
             runner: windows-latest
+            r: '4.3.0'
           - so: mac
             runner: macos-latest      # Apple Silicon
+            r: '4.3.3'
           - so: linux
             runner: ubuntu-24.04
+            r: '4.3.0'
 
     steps:
       - uses: actions/checkout@v5
 
-      - name: Instalar R 4.3.0
+      - name: Instalar R ${{ matrix.r }}
         uses: r-lib/actions/setup-r@v2
         with:
-          r-version: '4.3.0'
-          use-public-rspm: false      # usa solo el repositorio que define el script
+          r-version: ${{ matrix.r }}
+          use-public-rspm: false
 
       - name: Bibliotecas del sistema (solo Linux)
         if: matrix.so == 'linux'
