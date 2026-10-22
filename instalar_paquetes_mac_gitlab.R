@@ -140,7 +140,9 @@ paquetes_cran <- c(
   "dplyr", "htmltools", "htmlwidgets", "jsonlite", "DT", "withr",
   "lubridate", "openxlsx", "base64enc", "knitr", "rmarkdown",
   # --- Manipulación de datos y gráficos (ejercicios) ---
-  "tidyverse", "tidyr", "ggplot2", "scales", "readxl", "plotly",
+  "tidyverse", "tidyr", "ggplot2", "scales", "plotly",
+  # (Los archivos Excel de los ejercicios se leen con openxlsx, incluido
+  #  arriba. No se usa readxl: en macOS con R 4.3.0 sus binarios no cargan.)
   # --- Mapas (ejercicio Brasil DPA_GEO) ---
   "sf", "leaflet",
   # --- Herramientas de instalación ---
