@@ -17,10 +17,10 @@ jobs:
           - so: mac
             runner: macos-latest      # Apple Silicon
           - so: linux
-            runner: ubuntu-latest
+            runner: ubuntu-24.04
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Instalar R 4.3.0
         uses: r-lib/actions/setup-r@v2
