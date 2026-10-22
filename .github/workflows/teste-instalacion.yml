@@ -47,4 +47,4 @@ jobs:
         
       - name: Verificar paquetes críticos
         run: |
-          Rscript -e 'p <- c("dplyr","ggplot2","sf","leaflet","openxlsx","plotly","readxl","DemoTools","ProjSubnacional"); ok <- vapply(p, requireNamespace, logical(1), quietly = TRUE); print(ok); if (!all(ok)) quit(status = 1)'
+          Rscript -e 'p <- c("dplyr","ggplot2","sf","leaflet","openxlsx","plotly","DemoTools","ProjSubnacional"); ok <- vapply(p, requireNamespace, logical(1), quietly = TRUE); print(ok); if (!all(ok)) quit(status = 1)'
