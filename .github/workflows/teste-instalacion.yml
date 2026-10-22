@@ -42,6 +42,10 @@ jobs:
           GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}   # evita el límite de descargas de GitHub
         run: Rscript instalar_paquetes_${{ matrix.so }}_gitlab.R
 
+      - name: Diagnóstico readxl
+        if: always()
+        run: Rscript -e 'library(readxl); print(packageVersion("readxl"))'
+        
       - name: Verificar paquetes críticos
         run: |
           Rscript -e 'p <- c("dplyr","ggplot2","sf","leaflet","openxlsx","plotly","readxl","DemoTools","ProjSubnacional"); ok <- vapply(p, requireNamespace, logical(1), quietly = TRUE); print(ok); if (!all(ok)) quit(status = 1)'
